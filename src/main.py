@@ -41,7 +41,7 @@ class GeneticAlgorithm:
 
     def fitness_function(self, weights, daily_returns_df, risk_free_rate):
         portfolioRisk = PortfolioRisk()
-        _, _, sharpe_ratio = portfolioRisk.calculate_portfolio_risk(daily_returns_df, risk_free_rate)
+        _, _, sharpe_ratio = portfolioRisk.calculate_portfolio_risk(weights, daily_returns_df, risk_free_rate)
         return sharpe_ratio
 
     def select_parents(self, population, fitness_scores, number_of_parents):
