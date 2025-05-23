@@ -170,7 +170,7 @@ if __name__ == '__main__':
     try:
         daily_returns_df = pd.read_csv(args.input_data_path, index_col='Date', parse_dates=True)
         print("Successfully loaded daily returns data from: " + args.input_data_path)
-        print("Data shape: " + daily_returns_df.shape)
+        # print("Data shape: " + daily_returns_df.shape)
         print("Columns: "+ daily_returns_df.columns.tolist())
     except IOError:
         print("Error: Input file not found at "+args.input_data_path)
