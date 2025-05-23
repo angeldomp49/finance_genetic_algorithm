@@ -172,7 +172,7 @@ if __name__ == '__main__':
         print("Successfully loaded daily returns data from: " + args.input_data_path)
         print("Data shape: " + daily_returns_df.shape)
         print("Columns: "+ daily_returns_df.columns.tolist())
-    except FileNotFoundError:
+    except IOError:
         print("Error: Input file not found at "+args.input_data_path)
         exit()
 
