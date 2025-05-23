@@ -2,7 +2,7 @@ import numpy as np
 import random
 import pandas as pd
 
-from src.risk.PortfolioRisk import PortfolioRisk
+from risk.PortfolioRisk import PortfolioRisk
 
 
 class GeneticAlgorithm:
