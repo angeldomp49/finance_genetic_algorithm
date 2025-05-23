@@ -100,7 +100,7 @@ class GeneticAlgorithm:
                     best_sharpe = current_best_sharpe
                     best_portfolio = current_best_weights.copy()
 
-                print("Generation " + (generation+1) +"/" + number_of_generations + ": Best Sharpe Ratio = " + best_sharpe)
+                # print("Generation " + (generation+1) +"/" + number_of_generations + ": Best Sharpe Ratio = " + best_sharpe)
 
                 new_population = []
 
@@ -132,14 +132,14 @@ class GeneticAlgorithm:
 
         final_annual_return, final_annual_volatility, final_sharpe_ratio = portfolioRisk.calculate_portfolio_risk(best_portfolio, daily_returns_dataframe, risk_free_rate)
 
-        print("\n--- Optimization Complete ---")
-        print("Best Portfolio Annual Return: "+final_annual_return)
-        print("Best Portfolio Annual Volatility: "+final_annual_volatility)
-        print("Best Portfolio Sharpe Ratio: "+final_sharpe_ratio)
-        print("Best Portfolio Weights:")
+        # print("\n--- Optimization Complete ---")
+        # print("Best Portfolio Annual Return: "+final_annual_return)
+        # print("Best Portfolio Annual Volatility: "+final_annual_volatility)
+        # print("Best Portfolio Sharpe Ratio: "+final_sharpe_ratio)
+        # print("Best Portfolio Weights:")
 
         best_portfolio_series = pd.Series(best_portfolio, index=daily_returns_dataframe.columns)
-        print(best_portfolio_series[best_portfolio_series > 0.001].sort_values(ascending=False)) # Only show non-negligible weights
+        # print(best_portfolio_series[best_portfolio_series > 0.001].sort_values(ascending=False)) # Only show non-negligible weights
 
         return best_portfolio_series, final_annual_return, final_annual_volatility, final_sharpe_ratio
 
@@ -195,7 +195,7 @@ if __name__ == '__main__':
     # Save best portfolio weights
     best_portfolio_weights_series.name = 'weight' # Name the series for better CSV column name
     best_portfolio_weights_series.to_csv(os.path.join(args.output_data_path, 'best_portfolio_weights.csv'), header=True)
-    print("Best portfolio weights saved to: "+ os.path.join(args.output_data_path, 'best_portfolio_weights.csv'))
+    # print("Best portfolio weights saved to: "+ os.path.join(args.output_data_path, 'best_portfolio_weights.csv'))
 
     # Save summary metrics
     summary_metrics = pd.DataFrame({
@@ -203,4 +203,4 @@ if __name__ == '__main__':
         'Value': [final_return, final_volatility, final_sharpe]
     })
     summary_metrics.to_csv(os.path.join(args.output_data_path, 'portfolio_summary_metrics.csv'), index=False)
-    print("Summary metrics saved to: "+ os.path.join(args.output_data_path, 'portfolio_summary_metrics.csv'))
+    # print("Summary metrics saved to: "+ os.path.join(args.output_data_path, 'portfolio_summary_metrics.csv'))
