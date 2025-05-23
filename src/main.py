@@ -83,7 +83,7 @@ class GeneticAlgorithm:
         best_sharpe = -np.inf
         portfolioRisk = PortfolioRisk()
 
-        print("Starting GA for " + number_of_assets +" assets over " + number_of_generations + " generations...")
+        # print("Starting GA for " + number_of_assets +" assets over " + number_of_generations + " generations...")
 
         for generation in range(number_of_generations):
             fitness_scores = []
